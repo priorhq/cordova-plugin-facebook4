@@ -202,27 +202,32 @@
 
 - (void) checkHasCorrectPermissions:(CDVInvokedUrlCommand*)command
 {
-    
     NSArray *permissions = nil;
-    
+
     if ([command.arguments count] > 0) {
         permissions = command.arguments;
     }
-    
+
     NSSet *grantedPermissions = [FBSDKAccessToken currentAccessToken].permissions;
-    
+    NSMutableArray *notGrantedPermissions = [[NSMutableArray alloc] init];
+
     for (NSString *value in permissions) {
         NSLog(@"Checking permission %@.", value);
         if (![grantedPermissions containsObject:value]) { //checks if permissions does not exists
-            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
-                                                              messageAsString:@"A permission has been denied"];
-            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-            return;
+            [notGrantedPermissions addObject: value];
         }
     }
-    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-                                                      messageAsString:@"All permissions have been accepted"];
+
+    CDVPluginResult* pluginResult;
+    if ([notGrantedPermissions count] > 0) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                          messageAsArray: notGrantedPermissions];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                         messageAsString:@"All permissions have been accepted"];
+    }
+
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     return;
 }
