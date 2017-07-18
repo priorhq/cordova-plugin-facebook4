@@ -363,12 +363,14 @@ public class ConnectPlugin extends CordovaPlugin {
 
         Set<String> grantedPermissions = AccessToken.getCurrentAccessToken().getPermissions();
 
-        if (grantedPermissions.containsAll(grantedPermissions)) {
+        if (grantedPermissions.containsAll(expectedPermissions)) {
             callbackContext.success();
         } else {
+            expectedPermissions.removeAll(grantedPermissions);
+            JSONArray missingPermissions = new JSONArray(expectedPermissions);
             PluginResult result = new PluginResult(
                     PluginResult.Status.ERROR,
-                    expectedPermissions.removeAll(grantedPermissions)
+                    missingPermissions
             );
             callbackContext.sendPluginResult(result);
         }
