@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-facebook4"
-        version="1.9.1">
+        id="cordova-plugin-prior-facebook"
+        version="1.0.0-dev">
 
-    <name>Facebook Connect</name>
+    <name>Prior Facebook Login plugin</name>
 
     <description>
-      This is the official plugin for Facebook in Apache Cordova/PhoneGap!
-
-      The Facebook plugin for Apache Cordova allows you to use the same JavaScript code in your
-      Cordova application as you use in your web application.
+        Facebook Login implementation for Cordova
     </description>
-        
-    <repo>https://github.com/jeduan/cordova-plugin-facebook4</repo>
+
+    <repo>https://github.com/priorhq/cordova-plugin-facebook4</repo>
 
     <license>Apache 2.0</license>
 
@@ -21,10 +18,9 @@
     <preference name="APP_NAME" />
 
     <engines>
-        <!-- Requires > 3.5.0 because of the custom Framework tag for iOS [CB-6698] -->
-        <!-- Requires > 4.0.0 because of the Framework tag for Android that uses gradle -->
-        <engine name="cordova-android" version=">=3.5.0" />
-        <engine name="cordova-ios" version=">=3.5.0" />
+        <engine name="cordova" version=">=8.0.0" />
+        <engine name="cordova-android" version=">=7.1.0" />
+        <engine name="cordova-ios" version=">=4.5.4" />
     </engines>
 
     <!-- android -->
@@ -60,7 +56,7 @@
               android:label="@string/fb_app_name" />
         </config-file>
 
-        <framework src="com.facebook.android:facebook-android-sdk:4.+"/>
+        <framework src="com.facebook.android:facebook-android-sdk:4.31.0"/>
 
         <!-- cordova plugin src files -->
         <source-file src="src/android/ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
@@ -147,12 +143,12 @@
         </config-file>
 
         <!-- Bolts framework -->
-        <framework src="src/ios/Bolts.framework" custom="true" />
+        <framework type="podspec" src="Bolts" spec="1.9.0"/>
 
         <!-- Facebook framework -->
-        <framework src="src/ios/FBSDKCoreKit.framework" custom="true" />
-        <framework src="src/ios/FBSDKLoginKit.framework" custom="true" />
-        <framework src="src/ios/FBSDKShareKit.framework" custom="true" />
+        <framework type="podspec" src="FBSDKCoreKit" spec="4.31.1" />
+        <framework type="podspec" src="FBSDKLoginKit" spec="4.31.1" />
+        <framework type="podspec" src="FBSDKShareKit" spec="4.31.1" />
 
     </platform>
 
