@@ -346,8 +346,34 @@ public class ConnectPlugin extends CordovaPlugin {
             });
 
             return true;
+        } else if (action.equals("checkHasCorrectPermissions")) {
+            executeCheckHasCorrectPermissions(args, callbackContext);
+            return true;
         }
+
         return false;
+    }
+
+    private void executeCheckHasCorrectPermissions(JSONArray args, CallbackContext callbackContext) throws JSONException {
+        Set<String> expectedPermissions = new HashSet<String>(args.length());
+
+        for (int i = 0; i < args.length(); i++) {
+            expectedPermissions.add(args.getString(i));
+        }
+
+        Set<String> grantedPermissions = AccessToken.getCurrentAccessToken().getPermissions();
+
+        if (grantedPermissions.containsAll(expectedPermissions)) {
+            callbackContext.success();
+        } else {
+            expectedPermissions.removeAll(grantedPermissions);
+            JSONArray missingPermissions = new JSONArray(expectedPermissions);
+            PluginResult result = new PluginResult(
+                    PluginResult.Status.ERROR,
+                    missingPermissions
+            );
+            callbackContext.sendPluginResult(result);
+        }
     }
 
     private void executeGetDeferredApplink(JSONArray args,
