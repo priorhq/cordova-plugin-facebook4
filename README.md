@@ -1,30 +1,28 @@
-# cordova-plugin-facebook4
+# cordova-plugin-prior-facebook
 
-> Use Facebook SDK version 4 in Cordova projects
+> Use Facebook SDK in Cordova projects
 
 ## Installation
-
-See npm package for versions - https://www.npmjs.com/package/cordova-plugin-facebook4
 
 Make sure you've registered your Facebook app with Facebook and have an `APP_ID` [https://developers.facebook.com/apps](https://developers.facebook.com/apps).
 
 ```bash
-$ cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="123456789" --variable APP_NAME="myApplication"
+$ cordova plugin add cordova-plugin-prior-facebook --save --variable APP_ID="123456789" --variable APP_NAME="myApplication"
 ```
 
 If you need to change your `APP_ID` after installation, it's recommended that you remove and then re-add the plugin as above. Note that changes to the `APP_ID` value in your `config.xml` file will *not* be propagated to the individual platform builds.
 
 ## Usage
 
-This is a fork of the [official plugin for Facebook](https://github.com/Wizcorp/phonegap-facebook-plugin/) in Apache Cordova that implements the latest Facebook SDK. Unless noted, this is a drop-in replacement. You don't have to replace your client code.
+This started as a fork of a fork of then [official (?!?) plugin for Facebook](https://github.com/Wizcorp/phonegap-facebook-plugin/) in Apache Cordova that implements the latest Facebook SDK. Unless noted, this is a drop-in replacement. You don't have to replace your client code.
 
 The Facebook plugin for [Apache Cordova](http://cordova.apache.org/) allows you to use the same JavaScript code in your Cordova application as you use in your web application. However, unlike in the browser, the Cordova application will use the native Facebook app to perform Single Sign On for the user.  If this is not possible then the sign on will degrade gracefully using the standard dialog based authentication.
 
 ## Compatibility
 
-  * Cordova >= 5.0.0
-  * cordova-android >= 4.0
-  * cordova-ios >= 3.8
+  * Cordova >= 8.0.0
+  * cordova-android >= 7.1.0
+  * cordova-ios >= 4.5.4
   * cordova-browser >= 3.6
   * Phonegap build (use phonegap-version >= cli-5.2.0, android-minSdkVersion>=15, and android-build-tool=gradle), see [example here](https://github.com/yoav-zibin/phonegap-tictactoe/blob/gh-pages/www/config.xml)
 
