@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-prior-facebook",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cordova Facebook SDK Plugin",
   "cordova": {
     "id": "cordova-plugin-prior-facebook",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/priorhq/cordova-plugin-facebook4"
+    "url": "https://github.com/priorhq/cordova-plugin-prior-facebook"
   },
   "keywords": [
     "cordova",
