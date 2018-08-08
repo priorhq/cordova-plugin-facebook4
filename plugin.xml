@@ -56,7 +56,7 @@
               android:label="@string/fb_app_name" />
         </config-file>
 
-        <framework src="com.facebook.android:facebook-android-sdk:4.31.0"/>
+        <framework src="com.facebook.android:facebook-android-sdk:4.35.0"/>
 
         <!-- cordova plugin src files -->
         <source-file src="src/android/ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
@@ -146,9 +146,9 @@
         <framework type="podspec" src="Bolts" spec="1.9.0"/>
 
         <!-- Facebook framework -->
-        <framework type="podspec" src="FBSDKCoreKit" spec="4.31.1" />
-        <framework type="podspec" src="FBSDKLoginKit" spec="4.31.1" />
-        <framework type="podspec" src="FBSDKShareKit" spec="4.31.1" />
+        <framework type="podspec" src="FBSDKCoreKit" spec="4.35.0" />
+        <framework type="podspec" src="FBSDKLoginKit" spec="4.35.0" />
+        <framework type="podspec" src="FBSDKShareKit" spec="4.35.0" />
 
     </platform>
 
