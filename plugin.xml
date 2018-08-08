@@ -10,7 +10,7 @@
         Facebook Login implementation for Cordova
     </description>
 
-    <repo>https://github.com/priorhq/cordova-plugin-facebook4</repo>
+    <repo>https://github.com/priorhq/cordova-plugin-prior-facebook</repo>
 
     <license>Apache 2.0</license>
 
