@@ -885,6 +885,7 @@ public class ConnectPlugin extends CordovaPlugin {
                         graphContext.success(response.getJSONObject());
                     }
                     graphPath = null;
+                    lastGraphContext = null;
                 }
             }
         });
