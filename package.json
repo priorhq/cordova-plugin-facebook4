@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-prior-facebook",
-  "version": "1.2.0-dev",
+  "version": "1.2.0",
   "description": "Cordova Facebook SDK Plugin",
   "cordova": {
     "id": "cordova-plugin-prior-facebook",
