@@ -17,6 +17,7 @@
     <preference name="APP_ID" />
     <preference name="APP_NAME" />
     <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
+    <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.5.2"/>
 
     <engines>
         <engine name="cordova" version=">=8.0.0" />
@@ -148,13 +149,17 @@
           </array>
         </config-file>
 
-        <!-- Bolts framework -->
-        <framework type="podspec" src="Bolts" spec="1.9.0"/>
-
-        <!-- Facebook framework -->
-        <framework type="podspec" src="FBSDKCoreKit" spec="5.0.0" />
-        <framework type="podspec" src="FBSDKLoginKit" spec="5.0.0" />
-        <framework type="podspec" src="FBSDKShareKit" spec="5.0.0" />
+        <!-- Facebook SDK -->
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="FBSDKCoreKit" spec="5.7.0"/>
+                <pod name="FBSDKLoginKit" spec="5.7.0"/>
+                <pod name="FBSDKShareKit" spec="5.7.0"/>
+            </pods>
+        </podspec>
 
     </platform>
 
