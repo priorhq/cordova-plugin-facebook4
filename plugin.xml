@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-prior-facebook"
-        version="1.2.0">
+        version="1.3.0">
 
     <name>Prior Facebook Login plugin</name>
 
@@ -17,6 +17,7 @@
     <preference name="APP_ID" />
     <preference name="APP_NAME" />
     <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
+    <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.+"/>
 
     <engines>
         <engine name="cordova" version=">=8.0.0" />
@@ -58,7 +59,7 @@
               android:label="@string/fb_app_name" />
         </config-file>
 
-        <framework src="com.facebook.android:facebook-android-sdk:5.0.1"/>
+        <framework src="com.facebook.android:facebook-android-sdk:[5,6)"/>
 
         <!-- cordova plugin src files -->
         <source-file src="src/android/ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
@@ -148,13 +149,10 @@
           </array>
         </config-file>
 
-        <!-- Bolts framework -->
-        <framework type="podspec" src="Bolts" spec="1.9.0"/>
-
-        <!-- Facebook framework -->
-        <framework type="podspec" src="FBSDKCoreKit" spec="5.0.0" />
-        <framework type="podspec" src="FBSDKLoginKit" spec="5.0.0" />
-        <framework type="podspec" src="FBSDKShareKit" spec="5.0.0" />
+        <!-- Facebook SDK -->
+        <framework src="FBSDKCoreKit" type="podspec" spec="~> 5" />
+        <framework src="FBSDKLoginKit" type="podspec" spec="~> 5" />
+        <framework src="FBSDKShareKit" type="podspec" spec="~> 5" />
 
     </platform>
 
