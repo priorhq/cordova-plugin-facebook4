@@ -17,7 +17,7 @@
     <preference name="APP_ID" />
     <preference name="APP_NAME" />
     <preference name="FACEBOOK_HYBRID_APP_EVENTS" default="false" />
-    <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.5.2"/>
+    <preference name="FACEBOOK_ANDROID_SDK_VERSION" default="5.+"/>
 
     <engines>
         <engine name="cordova" version=">=8.0.0" />
@@ -59,7 +59,7 @@
               android:label="@string/fb_app_name" />
         </config-file>
 
-        <framework src="com.facebook.android:facebook-android-sdk:5.0.1"/>
+        <framework src="com.facebook.android:facebook-android-sdk:[5,6)"/>
 
         <!-- cordova plugin src files -->
         <source-file src="src/android/ConnectPlugin.java" target-dir="src/org/apache/cordova/facebook" />
@@ -150,16 +150,9 @@
         </config-file>
 
         <!-- Facebook SDK -->
-        <podspec>
-            <config>
-                <source url="https://github.com/CocoaPods/Specs.git"/>
-            </config>
-            <pods use-frameworks="true">
-                <pod name="FBSDKCoreKit" spec="5.7.0"/>
-                <pod name="FBSDKLoginKit" spec="5.7.0"/>
-                <pod name="FBSDKShareKit" spec="5.7.0"/>
-            </pods>
-        </podspec>
+        <framework src="FBSDKCoreKit" type="podspec" spec="~> 5" />
+        <framework src="FBSDKLoginKit" type="podspec" spec="~> 5" />
+        <framework src="FBSDKShareKit" type="podspec" spec="~> 5" />
 
     </platform>
 
